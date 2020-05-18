@@ -1,11 +1,11 @@
-function fetchPerson() {
+/*function fetchPerson() {
   return fetch("https://randomuser.me/api").then(x=>x.json()).then(x=>x.results[0]);
 };
 
 function wrapePromise (promise) {
   let status = 'pending';
   let result = '';
-  
+
   let suspender = promise.then(r => {
     status = 'Success';
     result = r;
@@ -32,3 +32,15 @@ export function createResource() {
     person: wrapePromise(fetchPerson())
   };
 };
+*/
+
+/*export async function fetchPerson() {
+  const x = await fetch('https://randomuser.me/api');
+  const x_1 = await x.json();
+  return x_1.results[0];
+}*/
+export function fetchPerson() {
+  return fetch('https://randomuser.me/api').then(x => x.json()).then(x => x.results[0]);
+}
+
+
