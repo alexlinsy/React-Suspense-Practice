@@ -45,6 +45,11 @@ export function Person() {
        <div className="text-gray-600">
         {profile.phone}
        </div>
+       <div className="mt-4">
+        <button className="bg-indigo-500 focus:outline-none focus:shadow-outline hover:bg-indigo-400 text-white font-bold py-2 px-4 rounded shadow-lg">
+          Connect
+        </button>
+       </div>
      </div>
     </div>
   )
