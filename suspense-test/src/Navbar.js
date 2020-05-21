@@ -19,6 +19,9 @@ export const Navbar = () => (
         <a href="#" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
           Blog
         </a>
+        <a href="#" className="block mt-4 sm:inline-block sm:mt-0 text-teal-200 hover:text-white mr-4">
+          Contact
+        </a>
       </div>
       <div>
         <a href="#" className="inline-block text-sm px-4 py-2 leading-none 
