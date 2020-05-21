@@ -29,7 +29,7 @@ export function Person() {
   },[]);
 
   return (
-    <div className="md:flex bg-gray-100 shadow-md rounded-lg md:w-1/2 p-6">
+    <div className="md:flex bg-gray-100 shadow-md rounded-lg md:w-1/2 p-6 mt-4 mx-auto">
      {error && (<div>{JSON.stringify(error, null , 2)}</div>)}
      <img alt="avatar" className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src={profile.avatar}/>
      <div className="text-center md:text-left">
