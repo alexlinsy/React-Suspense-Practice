@@ -3,41 +3,28 @@ import {fetchPerson} from './FetchPersonApi';
 import './style.css';
 
 export function Person() {
-  const [profile, setProfile] = useState({
-    first: '',
-    last: '',
-    avatar: '',
-    city: '',
-    email: '',
-    phone: ''
-  });
+  const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
   
   useEffect(() => {
    fetchPerson().then(r => {
-    setProfile({
-      first: r.name.first,
-      last: r.name.last,
-      avatar: r.picture.medium,
-      city: r.location.city,
-      email: r.email,
-      phone: r.phone
-    })
+    setProfile(r)
    }, e => {
     setError(e);
    });   
   },[]);
 
   return (
-    <div className="md:flex bg-gray-100 shadow-md rounded-lg md:w-1/2 p-6 mt-4 mx-auto">
-     {error && (<div>{JSON.stringify(error, null , 2)}</div>)}
-     <img alt="avatar" className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src={profile.avatar}/>
+    <div>
+    {error && (<div>{JSON.stringify(error, null , 2)}</div>)}
+    {profile ? (<div className="md:flex bg-gray-100 shadow-md rounded-lg md:w-1/2 p-6 mt-4 mx-auto">
+     <img alt="avatar" className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src={profile.picture.medium}/>
      <div className="text-center md:text-left">
        <div className="text-lg text-gray-600">
-        {`${profile.first} ${profile.last}`}
+        {`${profile.name.first} ${profile.name.last}`}
        </div>
        <div className="text-blue-500">
-        {profile.city}
+        {profile.location.city}
        </div>
        <div className="text-gray-600">
         {profile.email}
@@ -51,6 +38,7 @@ export function Person() {
         </button>
        </div>
      </div>
+    </div>) : (<div>Loading...</div>)}
     </div>
   )
 }
