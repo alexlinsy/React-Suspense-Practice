@@ -11,7 +11,7 @@ export function Person() {
     setProfile(r)
    }, e => {
     setError(e);
-   });   
+   });
   },[]);
 
   return (
